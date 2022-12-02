@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <div>
     <TypeNav></TypeNav>
@@ -20,7 +21,6 @@ import Brand from '@/pagaes/Home/Brand/index.vue';
 import { mapState } from 'vuex';
 
 export default {
-  name: 'Home',
   components: {
     ListContainer,
     Recommend,
