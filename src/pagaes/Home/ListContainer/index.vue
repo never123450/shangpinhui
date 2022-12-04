@@ -1,14 +1,15 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <!--列表-->
   <div class="list-container">
     <div class="sortList clearfix">
       <div class="center">
         <!--banner轮播-->
-        <div class="swiper-container" id="mySwiper">
+        <div class="swiper-container" ref="mySwiper">
           <div class="swiper-wrapper">
             <div
               class="swiper-slide"
-              v-for="(carouser, index) in bannerList"
+              v-for="(carouser) in bannerList"
               :key="carouser.id"
             >
               <img :src="carouser.imgUrl" />
@@ -135,10 +136,15 @@ export default {
   },
   watch: {
     bannerList: {
-      handler(newvalue, oldvalue) {
+      handler() {
+        //现在咱们通过watch监听bannerList属性的属性值的变化
+        //如果执行handler方法，代表组件实例身上这个属性的属性以已经有了【数组:四个元素】
+        //当前这个函数执行:只能保证bannerList数据已经有了，但是你没办法保证v-for已经执行结束了
+        //v-for执行完毕，才有结构【你现在在watch当中没办法保证的】
+        //netxTick:在下次 DOM更新循环结束之后执行延迟回调。在修改数据之后立即使用这个方法，获取更新后的 DON.
         this.$nextTick(() => {
-          var mySwiper = new Swiper(
-            document.querySelector(".swiper-container"),
+          new Swiper(
+            this.$refs.mySwiper,
             {
               loop: true, // 循环模式选项
               // 如果需要分页器

@@ -1,3 +1,4 @@
+<!-- eslint-disable vue/multi-word-component-names -->
 <template>
   <!--楼层-->
   <div class="floor">
@@ -47,7 +48,7 @@
                 <div class="swiper-wrapper">
                   <div
                     class="swiper-slide"
-                    v-for="(carousel, index) in list.carouselList"
+                    v-for="(carousel) in list.carouselList"
                     :key="carousel.id"
                   >
                     <img :src="carousel.imgUrl" />
@@ -97,7 +98,7 @@ export default {
     //第一次书写swiper的时候：在mounted当中书写是不可以的，但是为什么现在这里可以啦！
     //第一次书写轮播图的时候，是在当前组件内部发请求、动态渲染解构【前台至少服务器数据需要回来】，因此当年的写法在这里不行
     //现在的这种写法为什么可以：因为请求是父组件发的，父组件通过props传递过来的，而且结构都已经有了的情况下执行mounted
-    var mySwiper = new Swiper(document.querySelectorAll(".swiper-container"), {
+    new Swiper(document.querySelectorAll(".swiper-container"), {
       loop: true, // 循环模式选项
       // 如果需要分页器
       pagination: {

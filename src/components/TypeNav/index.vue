@@ -4,9 +4,11 @@
     <div class="container">
       <div @mouseleave="leaveIndex" @mouseenter="enterShow">
         <h2 class="all">全部商品分类</h2>
+        <!-- 过渡动画 -->
         <transition name="sort">
           <div class="sort" v-show="show">
             <!-- 一级菜单 -->
+            <!-- 利用事件委派+编程式导航实现路由的跳转与传递参数 -->
             <div class="all-sort-list2" @click="goSearch">
               <div
                 class="item bo"
@@ -116,6 +118,11 @@ export default {
     changeIndex: throttle(function (index) {
       // console.log(index);
       // index：鼠标移上某一个一级分类的元素的索引值
+      /*
+        正常情况（用户慢慢的操作：鼠标进入，每一个一级分类h3，都会触发鼠标进入事件
+        非正常情况（用户操作很快）：本身全部的一级分类都应该触发鼠标进入事件，但是经过测试，只有 部分h3触发了
+        就是又要用户行为过快，导致浏览器反应不过来，如果当前毁掉函数中有一些大量业务，可能出现卡顿现象
+        */
       this.currentIndex = index;
       // console.log("工作了", index);
     }, 50),
@@ -290,7 +297,7 @@ export default {
     }
     //定义动画时间、速率
     .sort-enter-active {
-      transition: all 0.5s linear;
+      transition: all 1s linear;
     }
   }
 }
