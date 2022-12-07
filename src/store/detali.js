@@ -1,7 +1,12 @@
 // detail模块的小仓库
-import { reqGoodsInfo, reqAddOrUpdateShopCart } from "@/api"; //引入api里面的axios
+import {
+    reqGoodsInfo,
+    reqAddOrUpdateShopCart
+} from "@/api"; //引入api里面的axios
 // 封装游客身份模块uuid--->生成一个随机字符串（不能在变了）
-import { getUUID } from "@/utils/uuid_token";
+import {
+    getUUID
+} from "@/utils/uuid_token";
 const state = {
     goodIofo: {},
     //游客临时身份
@@ -13,13 +18,21 @@ const mutations = {
     },
 };
 const actions = {
-    async getGoodIofo({ commit }, skuId) {
+    async getGoodIofo({
+        commit
+    }, skuId) {
         let result = await reqGoodsInfo(skuId);
         if (result.code == 200) {
             commit("GETGOODIOFO", result.data);
         }
     },
-    async addOrUpdateShopCart({ commit }, { skuId, skuNum }) {
+    async addOrUpdateShopCart({
+        // eslint-disable-next-line no-unused-vars
+        commit
+    }, {
+        skuId,
+        skuNum
+    }) {
         let result = await reqAddOrUpdateShopCart(skuId, skuNum);
         if (result.code == 200) {
             return "ok";
