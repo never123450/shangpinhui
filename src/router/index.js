@@ -39,7 +39,7 @@ import store from "@/store";
 let router = new VueRouter({
     routes: routers,
     // 滚动行为
-    scrollBehavior(to, from, savedPosion) {
+    scrollBehavior() {
         //返回的这个y=e，代表的滚动条在最上方
         return { y: 0 };
     },

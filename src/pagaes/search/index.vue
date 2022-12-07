@@ -134,6 +134,7 @@
 import { mapGetters, mapState } from "vuex";
 import SearchSelector from "./SearchSelector/SearchSelector";
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Search",
   data() {
     return {
@@ -272,7 +273,7 @@ export default {
     // 排序的操作
     changeOrder(flag) {
       //flag形参；它是一个标记，代表用户点击的是综合（1）价格（2）[用户点击的时候传递进来的]
-      let orginOrder = this.searchParams.order; //初始状态的order
+      // let orginOrder = this.searchParams.order; //初始状态的order
       let orginFlag = this.searchParams.order.split(":")[0]; //初始状态的order是1还是2
       let orginSort = this.searchParams.order.split(":")[1]; //初始状态的order是desc还是asc
       let newOrder = ""; //准备一个新的order
@@ -296,7 +297,7 @@ export default {
   },
   watch: {
     // 监听路由的信息是否发生变化，如果发生变化，再次发起请求
-    $route(newvalue, oldvalue) {
+    $route() {
       // 再次发请求之前整理带给服务器参数
       Object.assign(this.searchParams, this.$route.query, this.$route.params);
       //再次发起ajax请求
