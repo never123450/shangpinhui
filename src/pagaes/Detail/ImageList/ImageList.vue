@@ -1,5 +1,5 @@
 <template>
-  <div class="swiper-container">
+  <div class="swiper-container" ref="cur" >
     <div class="swiper-wrapper">
       <div
         class="swiper-slide"
@@ -30,14 +30,17 @@ export default {
   methods: {
     changeIndex(index) {
       this.currrentIndex = index;
+      // 通知兄弟组件
       this.$bus.$emit("getIndex", this.currrentIndex);
     },
   },
   props: ["skuImageList"],
   watch: {
-    skuImageList(newvalue, oldvalue) {
+    skuImageList() {
       this.$nextTick(() => {
-        var mySwiper = new Swiper(document.querySelector(".swiper-container"), {
+        //  js 原生的获取 dom 可以换成 vue 的
+        // new Swiper(document.querySelector(".swiper-container"), {
+          new Swiper(this.$refs.cur, {
           // 如果需要前进后退按钮
           navigation: {
             nextEl: ".swiper-button-next",

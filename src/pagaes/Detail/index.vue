@@ -82,13 +82,13 @@
             <div class="chooseArea">
               <div class="choosed"></div>
               <dl
-                v-for="(spuSaleAttr, index) in spuSaleAttrList"
+                v-for="(spuSaleAttr) in spuSaleAttrList"
                 :key="spuSaleAttr.id"
               >
                 <dt class="title">{{ spuSaleAttr.saleAttrName }}</dt>
                 <dd
                   v-for="(
-                    spuSaleAttrValue, index
+                    spuSaleAttrValue
                   ) in spuSaleAttr.spuSaleAttrValueList"
                   :key="spuSaleAttrValue.id"
                   changepirce="0"
@@ -365,6 +365,7 @@ import Zoom from "./Zoom/Zoom";
 import { mapGetters } from "vuex";
 
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Detail",
   data() {
     return {

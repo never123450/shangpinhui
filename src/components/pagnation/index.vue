@@ -40,6 +40,7 @@
 
 <script>
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Pagination",
   props: ["pageSize", "pageNo", "total", "continues"],
   computed: {
