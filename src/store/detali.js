@@ -26,13 +26,8 @@ const actions = {
             commit("GETGOODIOFO", result.data);
         }
     },
-    async addOrUpdateShopCart({
-        // eslint-disable-next-line no-unused-vars
-        commit
-    }, {
-        skuId,
-        skuNum
-    }) {
+    // eslint-disable-next-line no-unused-vars
+    async addOrUpdateShopCart({ commit }, { skuId, skuNum }) {
         let result = await reqAddOrUpdateShopCart(skuId, skuNum);
         if (result.code == 200) {
             return "ok";

@@ -73,11 +73,7 @@
           <!-- 销售产品列表 -->
           <div class="goods-list">
             <ul class="yui3-g">
-              <li
-                class="yui3-u-1-5"
-                v-for="(good) in goodsList"
-                :key="good.id"
-              >
+              <li class="yui3-u-1-5" v-for="good in goodsList" :key="good.id">
                 <div class="list-wrap">
                   <div class="p-img">
                     <router-link :to="`detail/${good.id}`">
@@ -153,9 +149,9 @@ export default {
         //排序：初始状态应该是综合|降序
         order: "1:desc",
         //分页器用的：代表的是当前是第几页
-        pageNo: 3,
+        pageNo: 1,
         //代表的是每一个展示数据个数
-        pageSize: 3,
+        pageSize: 10,
         //平台售卖属性操作带的参数
         props: [""],
         // 品牌
@@ -266,7 +262,8 @@ export default {
     // 删除售卖的属性
     removeAttr(index) {
       // 再次整理参数
-      this.searchParams.props.splice(index, 1); //splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组
+      this.searchParams.props.splice(index, 1); 
+      //splice() 方法通过删除或替换现有元素或者原地添加新的元素来修改数组,并以数组形式返回被修改的内容。此方法会改变原数组
       //  再次发送请求
       this.getData();
     },

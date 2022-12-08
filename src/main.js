@@ -11,6 +11,8 @@ import router from "./router";
 import * as API from "@/api";
 // 三级联动组件--全局组件
 import TypeNav from "@/components/TypeNav/index.vue";
+// 轮播图
+import Carsousel from "@/components/Carsousel"
 // 分页器--全局组件
 import Pagination from "@/components/pagnation/index.vue";
 //引入MockServer.js----mock数据
@@ -24,6 +26,7 @@ import "swiper/css/swiper.css";
 Vue.component(TypeNav.name, TypeNav);
 Vue.component(Pagination.name, Pagination);
 Vue.component(Button.name, Button);
+Vue.component(Carsousel.name,Carsousel)
 // 使用路由插件
 Vue.use(VueRouter);
 //ElementUI注册组件的时候，还有一种写法，挂在原型上

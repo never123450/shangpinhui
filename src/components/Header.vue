@@ -43,7 +43,11 @@
             class="input-error input-xxlarge"
             v-model="keyword"
           />
-          <button class="sui-btn btn-xlarge btn-danger" type="button" @click="goSearch">
+          <button
+            class="sui-btn btn-xlarge btn-danger"
+            type="button"
+            @click="goSearch"
+          >
             搜索
           </button>
         </form>
@@ -53,12 +57,13 @@
 </template>
 
 <script>
-import { mapState } from 'vuex';
+import { mapState } from "vuex";
 export default {
-  name: 'Header',
+  // eslint-disable-next-line vue/multi-word-component-names
+  name: "Header",
   data() {
     return {
-      keyword: '',
+      keyword: "",
     };
   },
   methods: {
@@ -66,7 +71,7 @@ export default {
     goSearch() {
       if (this.$route.query) {
         let location = {
-          name: 'soso',
+          name: "soso",
           params: { keyword: this.keyword || undefined },
         };
         location.query = this.$route.query;
@@ -81,9 +86,9 @@ export default {
       //2:清除项目当中的数据【userInfo、token】
 
       try {
-        this.$store.dispatch('logout');
+        this.$store.dispatch("logout");
         // 跳转到首页
-        this.$router.push('/home');
+        this.$router.push("/home");
       } catch (error) {
         console.log(error.message);
       }
@@ -96,8 +101,8 @@ export default {
   },
   mounted() {
     // 通过全局事件总线清除关键字
-    this.$bus.$on('clearkeyword', () => {
-      this.keyword = '';
+    this.$bus.$on("clearkeyword", () => {
+      this.keyword = "";
     });
   },
 };

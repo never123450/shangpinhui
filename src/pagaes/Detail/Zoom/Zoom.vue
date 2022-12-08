@@ -12,6 +12,7 @@
 
 <script>
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: "Zoom",
   data() {
     return {
@@ -51,6 +52,7 @@ export default {
     },
   },
   mounted() {
+    // 全局时间总线,获取兄弟组件传递过来的索引值
     this.$bus.$on("getIndex", (index) => {
       this.currentIndex = index;
     });

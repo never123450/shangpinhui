@@ -84,7 +84,9 @@
               <dl v-for="spuSaleAttr in spuSaleAttrList" :key="spuSaleAttr.id">
                 <dt class="title">{{ spuSaleAttr.saleAttrName }}</dt>
                 <dd
-                  v-for="spuSaleAttrValue in spuSaleAttr.spuSaleAttrValueList"
+                  v-for="(
+                    spuSaleAttrValue
+                  ) in spuSaleAttr.spuSaleAttrValueList"
                   :key="spuSaleAttrValue.id"
                   changepirce="0"
                   :class="{ active: spuSaleAttrValue.isChecked == 1 }"
