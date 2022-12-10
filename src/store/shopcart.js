@@ -17,6 +17,7 @@ const actions = {
         }
     },
     //删除购物车某一个产品
+    // eslint-disable-next-line no-unused-vars
     async deleteCartListBySkuId({ commit }, skuId) {
         let result = await reqDeleteCartById(skuId);
         if (result.code == 200) {
@@ -26,6 +27,7 @@ const actions = {
         }
     },
     //修改购物车某一个产品的选中状态
+    // eslint-disable-next-line no-unused-vars
     async updateCheckedById({ commit }, { skuId, isChecked }) {
         let result = await reqUpdateCheckedByid(skuId, isChecked);
         // console.log(result);

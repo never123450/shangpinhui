@@ -11,11 +11,7 @@
         <div class="cart-th6">操作</div>
       </div>
       <div class="cart-body">
-        <ul
-          class="cart-list"
-          v-for="(cart, index) in cartInfoList"
-          :key="cart.id"
-        >
+        <ul class="cart-list" v-for="cart in cartInfoList" :key="cart.id">
           <li class="cart-list-con1">
             <input
               type="checkbox"
@@ -110,7 +106,9 @@ export default {
     totalPrice() {
       let sum = 0;
       this.cartInfoList.forEach((element) => {
-        sum += element.skuNum * element.skuPrice;
+        if (element.isChecked === 1) {
+          sum += element.skuNum * element.skuPrice;
+        }
       });
       return sum;
     },
@@ -159,6 +157,7 @@ export default {
         });
         //再一次获取服务器最新的数据进行展示
         this.getData();
+        // eslint-disable-next-line no-empty
       } catch (error) {}
     }, 500),
     async deleteCartById(cart) {
