@@ -91,6 +91,7 @@
 
 <script>
 export default {
+  // eslint-disable-next-line vue/multi-word-component-names
   name: 'Register',
   data() {
     return {
@@ -120,7 +121,7 @@ export default {
       //只要有一个表单没有成功，不会发请求
       if (success) {
         try {
-          const { phone, code, password, password1 } = this;
+          const { phone, code, password } = this;
           await this.$store.dispatch("userRegister", {
             phone,
             code,

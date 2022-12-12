@@ -15,6 +15,7 @@ const actions = {
         }
     },
     //注册
+    // eslint-disable-next-line no-unused-vars
     async userRegister({ commit }, user) {
         let result = await reqUserRegister(user);
         // console.log(result);
