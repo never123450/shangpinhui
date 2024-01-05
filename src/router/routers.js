@@ -99,7 +99,7 @@ export default [{
     },
     {
         path: "*",
-        redirect: "/Home", //一上来就展示首页
+        redirect: "/home", //一上来就展示首页
     },
     {
         path: "/detail/:skuId",
