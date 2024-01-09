@@ -22,7 +22,7 @@
         <!-- 每一笔订单 -->
         <table
           class="order-item"
-          v-for="(order, index) in myOrder.records"
+          v-for="(order) in myOrder.records"
           :key="order.id"
         >
           <thead>
@@ -160,7 +160,7 @@
 
 <script>
 export default {
-  name: "",
+  name: "MyOrder",
   data() {
     return {
       //初始化参数
